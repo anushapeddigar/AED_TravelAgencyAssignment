@@ -12,10 +12,7 @@ import UserInterface.ManageCustomers.ManageCustomersJPanel;
 import UserInterface.ManageTravelAgency.ManageTravelAgencyJPanel;
 import java.awt.CardLayout;
 
-/**
- *
- * @author vikram
- */
+
 public class TravelAgencyMain extends javax.swing.JFrame {
 
     /**

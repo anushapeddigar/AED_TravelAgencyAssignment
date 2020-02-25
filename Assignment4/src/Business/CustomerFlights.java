@@ -7,10 +7,7 @@ package Business;
 
 import java.util.Date;
 
-/**
- *
- * @author 16175
- */
+
 public class CustomerFlights {
     
     private String flightSerialNo;

@@ -9,10 +9,6 @@ import java.util.ArrayList;
 
 
 
-/**
- *
- * @author mahit
- */
 public class FlightDirectory {
     private ArrayList<Flight> flightList;
 

@@ -22,10 +22,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author 16175
- */
 public class BookCustomersMultipleJPanel extends javax.swing.JPanel {
 JPanel cardSequenceJPanel;
     Flight flight;
@@ -69,8 +65,8 @@ JPanel cardSequenceJPanel;
     private void populateAirlineDetails(){
       txtAirlinerName.setText(flight.getAirlinerName());
         txtFlightSerialNo.setText(flight.getFlightId());
-        txtSource.setText(flight.getArrivalLocation());
-        txtDestination.setText(flight.getDepartureLocation());
+        txtSource.setText(flight.getDepartureLocation());
+        txtDestination.setText(flight.getArrivalLocation());
         TxtTimeOfDay.setText(flight.getTimeOfDay());
         SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy hh mm ss aa");
         String departDate = date.format(flight.getDepartureDate()); 
@@ -83,8 +79,8 @@ JPanel cardSequenceJPanel;
         
         txtAirlinerName1.setText(flight1.getAirlinerName());
         txtFlightSerialNo1.setText(flight1.getFlightId());
-        txtSource1.setText(flight1.getArrivalLocation());
-        txtDestination1.setText(flight1.getDepartureLocation());
+        txtSource1.setText(flight1.getDepartureLocation());
+        txtDestination1.setText(flight1.getArrivalLocation());
         TxtTimeOfDay1.setText(flight1.getTimeOfDay());
         SimpleDateFormat date2 = new SimpleDateFormat("dd/MM/yyyy hh mm ss aa");
         String departDate1 = date2.format(flight1.getDepartureDate()); 

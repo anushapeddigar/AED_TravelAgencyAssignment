@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author vikram
+ 
  */
 public class Airliner {
     private String airlinerName;

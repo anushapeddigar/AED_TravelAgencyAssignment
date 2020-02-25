@@ -10,7 +10,6 @@ import java.util.Date;
 
 /**
  *
- * @author vikram
  */
 public class Customer {
     private String customerName;

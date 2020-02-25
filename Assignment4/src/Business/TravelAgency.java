@@ -5,10 +5,6 @@
  */
 package Business;
 
-/**
- *
- * @author vikram
- */
 public class TravelAgency {
     CustomerDirectory customerDirectory;
     MasterFlightDirectory flightDirectory;

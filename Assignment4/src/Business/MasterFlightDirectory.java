@@ -8,10 +8,7 @@ package Business;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author vikram
- */
+
 public class MasterFlightDirectory {
     
     ArrayList<Flight> flightList;
