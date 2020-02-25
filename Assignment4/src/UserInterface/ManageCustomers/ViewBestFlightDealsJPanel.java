@@ -65,7 +65,7 @@ public class ViewBestFlightDealsJPanel extends javax.swing.JPanel {
     
        boolean checkIfDestinationAlreadyExists(Flight f){
            for (int i=0;i<destinationComboBox.getItemCount();i++){
-               if(f.getDepartureLocation().equals(destinationComboBox.getItemAt(i))){
+               if(f.getDepartureLocation().equals((String)(destinationComboBox.getItemAt(i)))){
                    return true;
                }
            }
@@ -73,8 +73,8 @@ public class ViewBestFlightDealsJPanel extends javax.swing.JPanel {
        }
        
        boolean checkIfSourceAlreadyExists(Flight f){
-           for (int i=0;i<destinationComboBox.getItemCount();i++){
-               if(f.getDepartureLocation().equals(destinationComboBox.getItemAt(i))){
+           for (int i=0;i<sourceComboBox.getItemCount();i++){
+               if(f.getDepartureLocation().equals((String)(sourceComboBox.getItemAt(i)))){
                    return true;
                }
            }
@@ -246,8 +246,8 @@ public class ViewBestFlightDealsJPanel extends javax.swing.JPanel {
         else{
             
             if (basedOnComboBox.getSelectedItem()=="Price per seat"){
-                DefaultTableModel dtm = (DefaultTableModel) tblBestDeals.getModel();
-            dtm.setRowCount(0);
+                DefaultTableModel dtm9 = (DefaultTableModel) tblBestDeals.getModel();
+            dtm9.setRowCount(0);
 
             Collections.sort(flightResult, new Comparator<Flight>() {
                 @Override
@@ -277,14 +277,14 @@ public class ViewBestFlightDealsJPanel extends javax.swing.JPanel {
            }
             }
             row[9]=noOfSeatsAvailable;
-            dtm.addRow(row);
+            dtm9.addRow(row);
         }
             }
             
             else 
                 if (basedOnComboBox.getSelectedItem()=="Duration of flight"){
-                DefaultTableModel dtm1 = (DefaultTableModel) tblBestDeals.getModel();
-            dtm1.setRowCount(0);
+                DefaultTableModel dtm10 = (DefaultTableModel) tblBestDeals.getModel();
+            dtm10.setRowCount(0);
 
             Collections.sort(flightResult, new Comparator<Flight>() {
                 @Override
@@ -294,7 +294,7 @@ public class ViewBestFlightDealsJPanel extends javax.swing.JPanel {
             }); 
              for(Flight flight:flightResult) {
             
-            Object row[] = new Object[8];
+            Object row[] = new Object[10];
             row[0] = flight;
             //.getAirlineName()
             row[1] = flight.getFlightId();
@@ -302,11 +302,18 @@ public class ViewBestFlightDealsJPanel extends javax.swing.JPanel {
             row[3] = flight.getArrivalLocation();
             row[4] = flight.getTimeOfDay();
             row[5] = flight.getDepartureDate();
-            row[6] = flight.getPerSeatRate();
-            row[7] = flight.getDuration();
-            dtm1.addRow(row);
+            row[6]=flight.getArrivalDate();
+            row[7] = flight.getPerSeatRate();
+            row[8] = flight.getDuration();
+            int noOfSeatsAvailable=0;
+             for(Seat s:flight.getSeatList()){
+           if(s.getOccupied()==false){
+               noOfSeatsAvailable=noOfSeatsAvailable+1;
+           }
+            }
+            row[9]=noOfSeatsAvailable;
+            dtm10.addRow(row);
         }
-           
                 }
        
       }
