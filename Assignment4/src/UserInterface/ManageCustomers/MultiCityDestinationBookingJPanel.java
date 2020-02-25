@@ -106,6 +106,7 @@ TravelAgency travelAgency;
         destinationComboBox = new javax.swing.JComboBox<>();
         sourceComboBox1 = new javax.swing.JComboBox<>();
         destinationComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -165,11 +166,22 @@ TravelAgency travelAgency;
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Destination");
 
+        jButton1.setText("back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 757, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -213,8 +225,10 @@ TravelAgency travelAgency;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(basedOnComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -244,6 +258,7 @@ TravelAgency travelAgency;
         // TODO add your handling code here:
         ArrayList<Flight> flightResult = travelAgency.getFlightDirectory().searchFlight1((String)sourceComboBox.getSelectedItem(),(String)destinationComboBox.getSelectedItem(),(String)sourceComboBox1.getSelectedItem(),(String)destinationComboBox1.getSelectedItem());
 
+        
         if (flightResult == null) {
             JOptionPane.showMessageDialog(null, "No flights available","Information",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -326,6 +341,10 @@ TravelAgency travelAgency;
             JOptionPane.showMessageDialog(null, "Source and destination can't be same");
             return;
         }
+         if(!((String)sourceComboBox1.getSelectedItem()).equals((String)destinationComboBox.getSelectedItem())){
+            JOptionPane.showMessageDialog(null, "Source of first flight should be equal to destination of next flight");
+            return;
+        }
 
         if (selectedRows[0] < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row");
@@ -343,6 +362,13 @@ TravelAgency travelAgency;
         }
     }//GEN-LAST:event_btnBookFlightActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        cardSequenceJPanel.remove(this);
+        CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+        layout.previous(cardSequenceJPanel);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> basedOnComboBox;
@@ -350,6 +376,7 @@ TravelAgency travelAgency;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> destinationComboBox;
     private javax.swing.JComboBox<String> destinationComboBox1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
