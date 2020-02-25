@@ -9,6 +9,7 @@ import Business.Airliner;
 import Business.Flight;
 import Business.TravelAgency;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -29,8 +30,53 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
         initComponents();
         this.cardSequenceJPanel = cardSequenceJPanel;
         this.travelAgency = travelAgency;
+          populateSourceComboBox();
+      populateDestinationComboBox();
     }
 
+       void  populateSourceComboBox(){
+           DefaultComboBoxModel dm=new DefaultComboBoxModel();
+           sourceComboBox.removeAllItems();
+       for(Flight f:travelAgency.getFlightDirectory().getFlightList()){
+           if(checkIfSourceAlreadyExists(f)==false){
+              
+           dm.addElement(f.getDepartureLocation()); 
+           } }       
+   
+       sourceComboBox.setModel(dm);
+   }
+       
+       void  populateDestinationComboBox(){
+           
+    DefaultComboBoxModel dm1=new DefaultComboBoxModel();
+           destinationComboBox.removeAllItems();
+      for(Flight f:travelAgency.getFlightDirectory().getFlightList()){
+           if (checkIfDestinationAlreadyExists(f)==false){
+           dm1.addElement(f.getArrivalLocation());
+           }
+      }       
+   
+       destinationComboBox.setModel(dm1);
+   }
+    
+       boolean checkIfDestinationAlreadyExists(Flight f){
+           for (int i=0;i<destinationComboBox.getItemCount();i++){
+               if(f.getDepartureLocation().equals(destinationComboBox.getItemAt(i))){
+                   return true;
+               }
+           }
+           return false;
+       }
+       
+       boolean checkIfSourceAlreadyExists(Flight f){
+           for (int i=0;i<destinationComboBox.getItemCount();i++){
+               if(f.getDepartureLocation().equals(destinationComboBox.getItemAt(i))){
+                   return true;
+               }
+           }
+           return false;
+       }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,14 +92,14 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
         btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSearchFlight = new javax.swing.JTable();
-        txtDepartureLocation = new javax.swing.JTextField();
-        txtDestination = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        TxtTimeofDay = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txtFlightNo = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         TxtDepartureDate = new javax.swing.JTextField();
+        sourceComboBox = new javax.swing.JComboBox<>();
+        destinationComboBox = new javax.swing.JComboBox<>();
+        timeOfDayComboBox = new javax.swing.JComboBox<>();
 
         setLayout(null);
 
@@ -63,11 +109,13 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(0, 11, 800, 35);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Departure");
         add(jLabel2);
         jLabel2.setBounds(109, 167, 121, 30);
 
+        txtDestinationLocation.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDestinationLocation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtDestinationLocation.setText("Destination");
         add(txtDestinationLocation);
@@ -104,37 +152,13 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(80, 280, 686, 110);
 
-        txtDepartureLocation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDepartureLocationActionPerformed(evt);
-            }
-        });
-        add(txtDepartureLocation);
-        txtDepartureLocation.setBounds(230, 170, 150, 33);
-
-        txtDestination.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDestinationActionPerformed(evt);
-            }
-        });
-        add(txtDestination);
-        txtDestination.setBounds(570, 170, 161, 33);
-
         jLabel3.setText("Time of day");
         add(jLabel3);
-        jLabel3.setBounds(120, 90, 90, 14);
+        jLabel3.setBounds(210, 80, 80, 16);
 
-        TxtTimeofDay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtTimeofDayActionPerformed(evt);
-            }
-        });
-        add(TxtTimeofDay);
-        TxtTimeofDay.setBounds(230, 80, 150, 30);
-
-        jLabel4.setText("Flight ID");
+        jLabel4.setText("Flight Number");
         add(jLabel4);
-        jLabel4.setBounds(130, 130, 80, 14);
+        jLabel4.setBounds(81, 120, 90, 16);
 
         txtFlightNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,19 +166,23 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
             }
         });
         add(txtFlightNo);
-        txtFlightNo.setBounds(230, 126, 150, 30);
+        txtFlightNo.setBounds(200, 120, 150, 22);
 
         jLabel5.setText("Date");
         add(jLabel5);
-        jLabel5.setBounds(500, 140, 23, 14);
-
-        TxtDepartureDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtDepartureDateActionPerformed(evt);
-            }
-        });
+        jLabel5.setBounds(430, 130, 26, 16);
         add(TxtDepartureDate);
-        TxtDepartureDate.setBounds(570, 130, 160, 30);
+        TxtDepartureDate.setBounds(540, 130, 130, 22);
+
+        add(sourceComboBox);
+        sourceComboBox.setBounds(220, 170, 130, 22);
+
+        add(destinationComboBox);
+        destinationComboBox.setBounds(550, 170, 140, 22);
+
+        timeOfDayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Morning Flight", "Evening Flight" }));
+        add(timeOfDayComboBox);
+        timeOfDayComboBox.setBounds(310, 70, 140, 22);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -162,7 +190,7 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         ArrayList<Flight> flightResult = travelAgency.getFlightDirectory().
-                searchFlight(txtDepartureLocation.getText(),txtDestination.getText(),txtFlightNo.getText(),TxtDepartureDate.getText(),TxtTimeofDay.getText());
+                searchFlight((String.valueOf(sourceComboBox.getSelectedItem())),String.valueOf(destinationComboBox.getSelectedItem()),txtFlightNo.getText(),TxtDepartureDate.getText(), (String) timeOfDayComboBox.getSelectedItem());
         if (flightResult == null) {
             JOptionPane.showMessageDialog(null, "No flights available","Information",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -184,40 +212,24 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
     
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void txtDestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDestinationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDestinationActionPerformed
-
-    private void txtDepartureLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartureLocationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDepartureLocationActionPerformed
-
-    private void TxtTimeofDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtTimeofDayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtTimeofDayActionPerformed
-
     private void txtFlightNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFlightNoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFlightNoActionPerformed
 
-    private void TxtDepartureDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtDepartureDateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtDepartureDateActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TxtDepartureDate;
-    private javax.swing.JTextField TxtTimeofDay;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JComboBox<String> destinationComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> sourceComboBox;
     private javax.swing.JTable tblSearchFlight;
-    private javax.swing.JTextField txtDepartureLocation;
-    private javax.swing.JTextField txtDestination;
+    private javax.swing.JComboBox<String> timeOfDayComboBox;
     private javax.swing.JLabel txtDestinationLocation;
     private javax.swing.JTextField txtFlightNo;
     // End of variables declaration//GEN-END:variables

@@ -16,6 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -60,10 +62,10 @@ public class UpdateFlightJPanel extends javax.swing.JPanel {
         txtFlightSerialNo.setText(flight.getFlightId());
         txtFlightDeparture.setText(flight.getDepartureLocation());
         txtFlightArrival.setText(flight.getArrivalLocation());
-        SimpleDateFormat date = new SimpleDateFormat("dd/mm/yyyy hh mm ss");
+        SimpleDateFormat date = new SimpleDateFormat("dd/mm/yyyy hh mm ss aa");
         String departDate = date.format(flight.getDepartureDate());
         txtFlightDepartureDate.setText(String.valueOf(departDate));
-         SimpleDateFormat date1 = new SimpleDateFormat("dd/mm/yyyy hh mm ss");
+         SimpleDateFormat date1 = new SimpleDateFormat("dd/mm/yyyy hh mm ss aa");
         String arrivalDate = date1.format(flight.getArrivalDate());
         TxtArrivalDate.setText(String.valueOf(arrivalDate));
         txtPricePerSeat.setText(String.valueOf(flight.getPerSeatRate()));
@@ -111,7 +113,7 @@ public class UpdateFlightJPanel extends javax.swing.JPanel {
                 btnSaveActionPerformed(evt);
             }
         });
-        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 144, 37));
+        add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 144, 37));
 
         txtAirlinerName.setEnabled(false);
         txtAirlinerName.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +128,7 @@ public class UpdateFlightJPanel extends javax.swing.JPanel {
         jLabel3.setText("Departure");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(244, 198, 104, 27));
 
-        timeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Morning Flight", "Day Flight", "Evening Flight", " " }));
+        timeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Morning Flight", "Evening Flight", " " }));
         timeComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 timeComboBoxActionPerformed(evt);
@@ -189,19 +191,19 @@ public class UpdateFlightJPanel extends javax.swing.JPanel {
                 btnUpdateActionPerformed(evt);
             }
         });
-        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 480, 144, 37));
+        add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 580, 144, 37));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("Price Per Seat");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 130, 27));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 130, 27));
 
         txtPricePerSeat.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtPricePerSeatKeyTyped(evt);
             }
         });
-        add(txtPricePerSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 155, 27));
+        add(txtPricePerSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 155, 27));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -216,21 +218,33 @@ public class UpdateFlightJPanel extends javax.swing.JPanel {
         });
         add(txtAirplaneId, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 150, -1));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Arrival Date ");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 360, -1, 30));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, -1, 30));
 
         TxtArrivalDate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtArrivalDateActionPerformed(evt);
             }
         });
-        add(TxtArrivalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 150, -1));
+        add(TxtArrivalDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 150, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         //txtAirlinerName.setText(airliner.getAirlinerName());
+          Pattern p=Pattern.compile("AM");
+        Matcher m=p.matcher(txtFlightDepartureDate.getText());
+        if(m.matches()){
+            if(((String)timeComboBox.getSelectedItem()).equals("Evening Flight")){
+            JOptionPane.showMessageDialog(null, "Doesn't match time of day");
+            return ;  
+        }}
+        else{ if(((String)timeComboBox.getSelectedItem()).equals("Morning Flight")){
+            JOptionPane.showMessageDialog(null, "Doesn't match time of day");
+            return ;  
+        }
+            
+        }
         Date availableDate = null;
 
         String serialNo = txtFlightSerialNo.getText();
@@ -243,7 +257,7 @@ public class UpdateFlightJPanel extends javax.swing.JPanel {
             return ;
          }
         try {
-            availableDate = new SimpleDateFormat("dd/mm/yyyy hh mm ss").parse(txtFlightDepartureDate.getText());
+            availableDate = new SimpleDateFormat("dd/mm/yyyy hh mm ss aa").parse(txtFlightDepartureDate.getText());
         }
         catch (ParseException ex) {
             Logger.getLogger(CreateNewFlightJPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -253,7 +267,7 @@ public class UpdateFlightJPanel extends javax.swing.JPanel {
         
          Date availableDate1=null;
           try {
-            availableDate1 = new SimpleDateFormat("dd/mm/yyyy hh mm ss").parse(TxtArrivalDate.getText());
+            availableDate1 = new SimpleDateFormat("dd/mm/yyyy hh mm ss aa").parse(TxtArrivalDate.getText());
         }
         catch (ParseException ex1) {
             Logger.getLogger(CreateNewFlightJPanel.class.getName()).log(Level.SEVERE, null, ex1);
