@@ -352,7 +352,7 @@ public class CreateNewFlightJPanel extends javax.swing.JPanel {
           for ( Flight f: airliner.getFlightDir().getFlightList()){
               try{
               if(f.getAirPlaneNumber().equals(txtAirplaneId.getText())){
-                  if(((availableDate.compareTo(f.getDepartureDate()))>0)&&((f.getArrivalDate().compareTo(availableDate))>0)){
+                  if(((availableDate.compareTo(f.getDepartureDate()))>=0)&&((f.getArrivalDate().compareTo(availableDate))>=0)){
                        JOptionPane.showMessageDialog(null, "An   airplane   can’t   be   assigned   to   two   flights   which   have   overlaps");
             return;
                   }

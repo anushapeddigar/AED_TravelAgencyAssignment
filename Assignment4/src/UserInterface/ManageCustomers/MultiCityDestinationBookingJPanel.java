@@ -258,7 +258,18 @@ TravelAgency travelAgency;
         // TODO add your handling code here:
         ArrayList<Flight> flightResult = travelAgency.getFlightDirectory().searchFlight1((String)sourceComboBox.getSelectedItem(),(String)destinationComboBox.getSelectedItem(),(String)sourceComboBox1.getSelectedItem(),(String)destinationComboBox1.getSelectedItem());
 
-        
+        if(!((String)sourceComboBox1.getSelectedItem()).equals((String)destinationComboBox.getSelectedItem())){
+            JOptionPane.showMessageDialog(null, "Source of first flight should be equal to destination of next flight");
+            return;
+        }
+        if(((String)sourceComboBox1.getSelectedItem()).equals((String)destinationComboBox1.getSelectedItem())){
+            JOptionPane.showMessageDialog(null, "Source and destination can't be equal");
+            return;
+        }
+         if(((String)sourceComboBox.getSelectedItem()).equals((String)destinationComboBox.getSelectedItem())){
+            JOptionPane.showMessageDialog(null, "Source and destination can't be equal");
+            return;
+        }
         if (flightResult == null) {
             JOptionPane.showMessageDialog(null, "No flights available","Information",JOptionPane.INFORMATION_MESSAGE);
         }
@@ -341,10 +352,7 @@ TravelAgency travelAgency;
             JOptionPane.showMessageDialog(null, "Source and destination can't be same");
             return;
         }
-         if(!((String)sourceComboBox1.getSelectedItem()).equals((String)destinationComboBox.getSelectedItem())){
-            JOptionPane.showMessageDialog(null, "Source of first flight should be equal to destination of next flight");
-            return;
-        }
+         
 
         if (selectedRows[0] < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row");

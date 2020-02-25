@@ -69,42 +69,16 @@ public ArrayList < Flight > searchFlight(String departureLocation, String arriva
     
 public ArrayList<Flight> searchFlight1(String departureLocation, String arrivalLocation){
       
-       ArrayList<Flight> result = new ArrayList<Flight>();
-       ArrayList<Flight> result1 = new ArrayList<Flight>();
-       ArrayList<Flight> result2 = new ArrayList<Flight>();
-      for (Flight flight: flightList) {
-if (departureLocation.equals("") && arrivalLocation.equals("")) {
-             result.add(flight);
-             return result;
-          }
-           if (flight.getDepartureLocation().toLowerCase().equals(departureLocation.toLowerCase()) && flight.getArrivalLocation().toLowerCase().equals(arrivalLocation.toLowerCase())) {
-             result.add(flight);
-             
-          }
-           else if (flight.getDepartureLocation().toLowerCase().equals(departureLocation.toLowerCase()) || flight.getArrivalLocation().toLowerCase().equals(arrivalLocation.toLowerCase())) {
-             result1.add(flight);
-          }
-       }
-      String tempArrival=null;
-      for (Flight flight1 : result1){
-          if(flight1.getDepartureLocation().toLowerCase().equals(departureLocation.toLowerCase()))
-          {
-              tempArrival = flight1.getArrivalLocation().toLowerCase();
-              result.add(flight1);
-              break;
-          }
-      }
-      for(Flight flight2 : result1)
-      {
-          if(flight2.getArrivalLocation().toLowerCase().equals(arrivalLocation.toLowerCase())){
-              if(flight2.getDepartureLocation().toLowerCase().equals(tempArrival))
-          {
-              result.add(flight2);
-          }
-          }
-          
-      }
-      return result;
+        ArrayList<Flight> result = new ArrayList<Flight>();
+        for (Flight flight: flightList) {
+            if (departureLocation.equals("") && arrivalLocation.equals("")) {
+                result.add(flight);
+            }
+            if (flight.getDepartureLocation().equals(departureLocation) && flight.getArrivalLocation().equals(arrivalLocation)) {
+                result.add(flight);
+            }
+        }
+        return result;
  }
     
 public ArrayList<Flight> searchFlight1(String departureLocation, String arrivalLocation,String departureLocation1, String arrivalLocation1){
