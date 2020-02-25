@@ -86,7 +86,7 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Airliners");
         add(jLabel1);
-        jLabel1.setBounds(210, 20, 470, 29);
+        jLabel1.setBounds(0, 23, 790, 29);
 
         tblAirliner.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,7 +107,7 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblAirliner);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(110, 100, 690, 115);
+        jScrollPane1.setBounds(110, 100, 550, 115);
 
         btnNewAirliner.setText("New Airliner >>");
         btnNewAirliner.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +116,7 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
             }
         });
         add(btnNewAirliner);
-        btnNewAirliner.setBounds(110, 230, 150, 30);
+        btnNewAirliner.setBounds(700, 140, 150, 30);
 
         btnUpdateAirliner.setText("Update Airliner");
         btnUpdateAirliner.addActionListener(new java.awt.event.ActionListener() {
@@ -125,19 +125,19 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
             }
         });
         add(btnUpdateAirliner);
-        btnUpdateAirliner.setBounds(280, 230, 150, 32);
+        btnUpdateAirliner.setBounds(250, 220, 150, 32);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("AIRLINER DIRECTORY");
+        jLabel2.setText("ALL Airliners");
         add(jLabel2);
-        jLabel2.setBounds(50, 60, 279, 26);
+        jLabel2.setBounds(200, 60, 279, 26);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Airliner Name");
+        jLabel3.setText("Airliner");
         add(jLabel3);
-        jLabel3.setBounds(110, 290, 130, 30);
+        jLabel3.setBounds(60, 290, 80, 30);
 
         txtSearchAirliner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,8 +145,9 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
             }
         });
         add(txtSearchAirliner);
-        txtSearchAirliner.setBounds(320, 290, 250, 30);
+        txtSearchAirliner.setBounds(150, 290, 420, 30);
 
+        btnSearch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSearch.setText("Search Airliner");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +155,7 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
             }
         });
         add(btnSearch);
-        btnSearch.setBounds(610, 290, 160, 32);
+        btnSearch.setBounds(270, 330, 118, 32);
 
         tblSearchAirliner.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -175,7 +176,7 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblSearchAirliner);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(110, 370, 700, 120);
+        jScrollPane2.setBounds(110, 370, 700, 98);
 
         btnManageFlights.setText("Manage Flights");
         btnManageFlights.addActionListener(new java.awt.event.ActionListener() {
@@ -184,7 +185,7 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
             }
         });
         add(btnManageFlights);
-        btnManageFlights.setBounds(110, 510, 160, 30);
+        btnManageFlights.setBounds(260, 480, 160, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateAirlinerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAirlinerActionPerformed

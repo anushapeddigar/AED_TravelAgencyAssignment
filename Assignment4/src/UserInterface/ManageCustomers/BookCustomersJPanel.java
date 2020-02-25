@@ -61,11 +61,11 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
         txtSource.setText(flight.getArrivalLocation());
         txtDestination.setText(flight.getDepartureLocation());
         TxtTimeOfDay.setText(flight.getTimeOfDay());
-        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy hh mm ss");
+        SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy hh mm ss aa");
         String departDate = date.format(flight.getDepartureDate()); 
        txtDepartureDate.setText(departDate);
        
-        SimpleDateFormat date1 = new SimpleDateFormat("dd/MM/yyyy hh mm ss");
+        SimpleDateFormat date1 = new SimpleDateFormat("dd/MM/yyyy hh mm ss aa");
         String arrivalDate = date1.format(flight.getArrivalDate()); 
        TxtArrivalDate.setText(arrivalDate);
         txtSeatPrice.setText(Integer.toString(flight.getPerSeatRate()));
@@ -192,29 +192,29 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Customer Details");
         add(jLabel7);
-        jLabel7.setBounds(340, 280, 200, 38);
+        jLabel7.setBounds(340, 240, 200, 38);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Age");
         add(jLabel8);
-        jLabel8.setBounds(450, 330, 30, 25);
+        jLabel8.setBounds(450, 290, 30, 25);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Name");
         add(jLabel9);
-        jLabel9.setBounds(140, 330, 86, 25);
+        jLabel9.setBounds(140, 290, 86, 25);
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Gender");
         add(jLabel10);
-        jLabel10.setBounds(140, 370, 50, 25);
+        jLabel10.setBounds(140, 330, 50, 25);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setText("Passport No");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel11.setText("Passport Number");
         add(jLabel11);
-        jLabel11.setBounds(450, 370, 100, 25);
+        jLabel11.setBounds(450, 330, 100, 25);
         add(txtCustomerName);
-        txtCustomerName.setBounds(230, 330, 159, 25);
+        txtCustomerName.setBounds(230, 290, 159, 25);
 
         txtCustomerAge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -222,9 +222,9 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
             }
         });
         add(txtCustomerAge);
-        txtCustomerAge.setBounds(570, 330, 159, 25);
+        txtCustomerAge.setBounds(590, 290, 159, 25);
         add(txtPassportNumber);
-        txtPassportNumber.setBounds(570, 370, 159, 25);
+        txtPassportNumber.setBounds(590, 330, 159, 25);
 
         btnBookFlight.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnBookFlight.setText("Book Flight");
@@ -258,20 +258,18 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
         add(txtSeatPrice);
         txtSeatPrice.setBounds(570, 150, 184, 31);
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Time of day");
         add(jLabel14);
-        jLabel14.setBounds(130, 230, 80, 20);
+        jLabel14.setBounds(103, 230, 100, 16);
         add(TxtTimeOfDay);
-        TxtTimeOfDay.setBounds(230, 230, 180, 26);
+        TxtTimeOfDay.setBounds(230, 230, 120, 22);
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("Seat List");
         add(jLabel15);
-        jLabel15.setBounds(480, 210, 51, 17);
+        jLabel15.setBounds(470, 210, 48, 16);
 
         add(seatsComboBox);
-        seatsComboBox.setBounds(570, 200, 180, 26);
+        seatsComboBox.setBounds(570, 210, 100, 22);
 
         backBtn.setText("back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -280,11 +278,11 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
             }
         });
         add(backBtn);
-        backBtn.setBounds(10, 30, 65, 29);
+        backBtn.setBounds(10, 30, 59, 25);
 
         genderComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male", "Other" }));
         add(genderComboBox);
-        genderComboBox.setBounds(240, 370, 90, 26);
+        genderComboBox.setBounds(240, 340, 90, 22);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtDepartureDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartureDateActionPerformed
@@ -304,8 +302,8 @@ public class BookCustomersJPanel extends javax.swing.JPanel {
         Date availableDate1=null;
        
         try {
-            availableDate = new SimpleDateFormat("dd/MM/yyyy hh mm ss").parse(TxtArrivalDate.getText());
-             availableDate1 = new SimpleDateFormat("dd/MM/yyyy hh mm ss").parse(txtDepartureDate.getText());
+            availableDate = new SimpleDateFormat("dd/MM/yyyy hh mm ss aa").parse(TxtArrivalDate.getText());
+             availableDate1 = new SimpleDateFormat("dd/MM/yyyy hh mm ss aa").parse(txtDepartureDate.getText());
         }
         catch (ParseException ex) {
             Logger.getLogger(CreateNewFlightJPanel.class.getName()).log(Level.SEVERE, null, ex);
