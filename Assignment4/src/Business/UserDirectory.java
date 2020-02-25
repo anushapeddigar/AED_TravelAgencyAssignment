@@ -7,10 +7,6 @@ package Business;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author vikram
- */
 public class UserDirectory {
     ArrayList<User> userList ;
 

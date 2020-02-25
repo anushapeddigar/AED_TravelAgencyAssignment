@@ -9,10 +9,6 @@ import java.util.ArrayList;
 
 
 
-/**
- *
- * @author vikram
- */
 public class SeatList {
     private ArrayList<Seat> listOfSeats;
 

@@ -14,10 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author vikram
- */
+
 public class ManageFlightJPanel extends javax.swing.JPanel {
 
     /**

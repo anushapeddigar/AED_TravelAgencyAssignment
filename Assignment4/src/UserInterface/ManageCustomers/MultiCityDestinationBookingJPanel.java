@@ -16,10 +16,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author 16175
- */
+
 public class MultiCityDestinationBookingJPanel extends javax.swing.JPanel {
 TravelAgency travelAgency;
     JPanel cardSequenceJPanel;
@@ -36,32 +33,39 @@ TravelAgency travelAgency;
     }
  void  populateSourceComboBox(){
            DefaultComboBoxModel dm=new DefaultComboBoxModel();
+           DefaultComboBoxModel dm2=new DefaultComboBoxModel();
            sourceComboBox.removeAllItems();
            sourceComboBox1.removeAllItems();
        for(Flight f:travelAgency.getFlightDirectory().getFlightList()){
            if(checkIfSourceAlreadyExists(f)==false){
               
-           dm.addElement(f.getDepartureLocation()); 
+           dm.addElement(f.getDepartureLocation());
+           
+           dm2.addElement(f.getDepartureLocation());
            } }       
    
        sourceComboBox.setModel(dm);
        
-       sourceComboBox1.setModel(dm);
+       sourceComboBox1.setModel(dm2);
    }
        
        void  populateDestinationComboBox(){
            
     DefaultComboBoxModel dm1=new DefaultComboBoxModel();
+    
+    DefaultComboBoxModel dm3=new DefaultComboBoxModel();
            destinationComboBox.removeAllItems();
            destinationComboBox1.removeAllItems();
       for(Flight f:travelAgency.getFlightDirectory().getFlightList()){
            if (checkIfDestinationAlreadyExists(f)==false){
            dm1.addElement(f.getArrivalLocation());
+           
+           dm3.addElement(f.getArrivalLocation());
            }
       }       
    
        destinationComboBox.setModel(dm1);
-       destinationComboBox1.setModel(dm1);
+       destinationComboBox1.setModel(dm3);
    }
     
        boolean checkIfDestinationAlreadyExists(Flight f){

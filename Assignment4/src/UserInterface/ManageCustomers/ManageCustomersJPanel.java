@@ -9,10 +9,7 @@ import Business.TravelAgency;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
-/**
- *
- * @author vikram
- */
+
 public class ManageCustomersJPanel extends javax.swing.JPanel {
 
     /**

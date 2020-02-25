@@ -5,10 +5,7 @@
  */
 package Business;
 
-/**
- *
- * @author vikram
- */
+
 public class Seat {
     
    int seatNumber ;

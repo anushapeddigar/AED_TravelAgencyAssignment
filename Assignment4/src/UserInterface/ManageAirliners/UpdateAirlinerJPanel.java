@@ -13,10 +13,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author vikram
- */
+
 public class UpdateAirlinerJPanel extends javax.swing.JPanel {
 
     /**

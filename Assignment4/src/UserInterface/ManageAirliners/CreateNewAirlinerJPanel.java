@@ -14,10 +14,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author vikram
- */
+
 public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
 
     /**
@@ -97,7 +94,7 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 140, 30));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 140, 30));
 
         btnBack.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnBack.setText("<< Back");
@@ -106,7 +103,7 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 160, 30));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 160, 30));
         add(txtAirlinerAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 200, 30));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -120,7 +117,7 @@ public class CreateNewAirlinerJPanel extends javax.swing.JPanel {
                 btnAddPlaneActionPerformed(evt);
             }
         });
-        add(btnAddPlane, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 250, 150, 30));
+        add(btnAddPlane, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, 150, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed

@@ -7,10 +7,7 @@ package Business;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author vikram
- */
+
 public class AirlinerDirectory {
     ArrayList<Airliner> airlinerDirectory;
     

@@ -21,10 +21,7 @@ import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-/**
- *
- * @author vikram
- */
+
 public class UpdateFlightJPanel extends javax.swing.JPanel {
 
     /**

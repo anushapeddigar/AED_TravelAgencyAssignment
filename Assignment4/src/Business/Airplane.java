@@ -7,10 +7,7 @@ package Business;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author 16175
- */
+
 public class Airplane {
  
     private String planeId;

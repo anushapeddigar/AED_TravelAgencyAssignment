@@ -14,10 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author vikram
- */
+
 public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
 
     /**
@@ -113,13 +110,13 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Departure");
         add(jLabel2);
-        jLabel2.setBounds(109, 167, 121, 30);
+        jLabel2.setBounds(70, 170, 121, 30);
 
         txtDestinationLocation.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDestinationLocation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtDestinationLocation.setText("Destination");
         add(txtDestinationLocation);
-        txtDestinationLocation.setBounds(426, 166, 146, 32);
+        txtDestinationLocation.setBounds(360, 170, 146, 32);
 
         btnSearch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnSearch.setText("Search");
@@ -152,13 +149,15 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(80, 280, 686, 110);
 
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel3.setText("Time of day");
         add(jLabel3);
-        jLabel3.setBounds(210, 80, 80, 16);
+        jLabel3.setBounds(210, 80, 80, 19);
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel4.setText("Flight Number");
         add(jLabel4);
-        jLabel4.setBounds(81, 120, 90, 16);
+        jLabel4.setBounds(81, 120, 90, 19);
 
         txtFlightNo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,17 +167,18 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
         add(txtFlightNo);
         txtFlightNo.setBounds(200, 120, 150, 22);
 
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel5.setText("Date");
         add(jLabel5);
-        jLabel5.setBounds(430, 130, 26, 16);
+        jLabel5.setBounds(420, 130, 50, 19);
         add(TxtDepartureDate);
-        TxtDepartureDate.setBounds(540, 130, 130, 22);
+        TxtDepartureDate.setBounds(510, 120, 130, 22);
 
         add(sourceComboBox);
-        sourceComboBox.setBounds(220, 170, 130, 22);
+        sourceComboBox.setBounds(200, 180, 130, 22);
 
         add(destinationComboBox);
-        destinationComboBox.setBounds(550, 170, 140, 22);
+        destinationComboBox.setBounds(510, 180, 140, 22);
 
         timeOfDayComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Morning Flight", "Evening Flight" }));
         add(timeOfDayComboBox);

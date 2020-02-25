@@ -9,10 +9,6 @@ import java.util.ArrayList;
 
 
 
-/**
- *
- * @author 16175
- */
 public class Fleet {
     
     ArrayList<Airplane> fleet;
