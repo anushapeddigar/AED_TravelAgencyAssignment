@@ -188,6 +188,10 @@ public class ManageTravelAgencyJPanel extends javax.swing.JPanel {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
                                                 
         // TODO add your handling code here:
+          if(((String)sourceComboBox.getSelectedItem()).equals((String)destinationComboBox.getSelectedItem())){
+            JOptionPane.showMessageDialog(null, "Source and destination can't be equal");
+            return;
+        }
         
         ArrayList<Flight> flightResult = travelAgency.getFlightDirectory().
                 searchFlight((String.valueOf(sourceComboBox.getSelectedItem())),String.valueOf(destinationComboBox.getSelectedItem()),txtFlightNo.getText(),TxtDepartureDate.getText(), (String) timeOfDayComboBox.getSelectedItem());

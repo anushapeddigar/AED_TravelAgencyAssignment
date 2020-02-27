@@ -538,7 +538,7 @@ try{
 
 for(CustomerFlights f:c.getCustFlights()){
 
-      if (((f.getArrivalDate().compareTo(availableDate1))<0) &&((f.getArrivalDate().compareTo(availableDate3)) < 0)){
+      if ((f.getArrivalDate().compareTo(availableDate3))>0) {
               
 
              JOptionPane.showMessageDialog(null, "You can't book 2 flights which have overlap");
@@ -548,7 +548,12 @@ for(CustomerFlights f:c.getCustFlights()){
         System.out.println(e);
     }
 
-     
+      if ((availableDate.compareTo(availableDate3))>0) {
+              
+
+             JOptionPane.showMessageDialog(null, "Arrival date of first flight can't be greater than departure date of second flight");
+             return;   
+      }
 try{
 
 for(CustomerFlights f:c.getCustFlights()){

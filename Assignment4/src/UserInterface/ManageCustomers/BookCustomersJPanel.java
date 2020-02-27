@@ -330,7 +330,7 @@ try{
 
 for(CustomerFlights f:c.getCustFlights()){
 
-      if (f.getArrivalDate().compareTo(availableDate1) < 0){
+      if (f.getArrivalDate().compareTo(availableDate1) > 0){
               
 
              JOptionPane.showMessageDialog(null, "You can't book 2 flights which have overlap");

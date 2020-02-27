@@ -11,6 +11,7 @@ import Business.Fleet;
 import Business.Flight;
 import Business.TravelAgency;
 import java.awt.CardLayout;
+import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -221,7 +222,21 @@ public class CreateNewPlaneJPanel extends javax.swing.JPanel {
         
         cardSequenceJPanel.remove(this);
         CardLayout layout = (CardLayout) cardSequenceJPanel.getLayout();
+           
+        
+        Component[] comps = this.cardSequenceJPanel.getComponents();
+        for(Component comp : comps){
+            if(comp instanceof ManageAirlinersJPanel){
+                ManageAirlinersJPanel manageP= (ManageAirlinersJPanel) comp;
+                manageP.populateTable();
+                manageP.populateSearchTable();
+               //prodDir.getProductDirectory()
+            }
+        }
+       
         layout.previous(cardSequenceJPanel);
+        
+      
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtPlaneIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlaneIdActionPerformed
