@@ -239,7 +239,22 @@ public class ManageAirlinersJPanel extends javax.swing.JPanel {
         //}
       }
     }//GEN-LAST:event_btnSearchActionPerformed
-
+ public void populateSearchTable(){
+     
+        Airliner result = travelAgency.getAirlinerDirectory().searchAirliner(txtSearchAirliner.getText());
+     DefaultTableModel dtm = (DefaultTableModel) tblSearchAirliner.getModel();
+            dtm.setRowCount(0);
+        
+//    for(Airliner airliner:airlinerDirectory.getAirliners()) {
+            Object row[] = new Object[5];
+            row[0] = result;
+            row[1] = result.getAirlinerId();
+            
+            row[2] = result.getAirlinerAddress();
+            row[3]=result.getFleet().size();
+                    
+            row[4] = result.getFlightDir().getFlightList().size();
+            dtm.addRow(row);}
     private void btnManageFlightsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageFlightsActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblSearchAirliner.getSelectedRow();

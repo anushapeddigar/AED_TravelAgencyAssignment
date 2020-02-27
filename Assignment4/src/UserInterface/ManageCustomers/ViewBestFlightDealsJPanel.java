@@ -239,7 +239,10 @@ public class ViewBestFlightDealsJPanel extends javax.swing.JPanel {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
         ArrayList<Flight> flightResult = travelAgency.getFlightDirectory().searchFlight1((String)sourceComboBox.getSelectedItem(),(String)destinationComboBox.getSelectedItem());
-        
+          if(((String)sourceComboBox.getSelectedItem()).equals((String)destinationComboBox.getSelectedItem())){
+            JOptionPane.showMessageDialog(null, "Source and destination can't be equal");
+            return;
+        }
         if (flightResult == null) {
             JOptionPane.showMessageDialog(null, "No flights available","Information",JOptionPane.INFORMATION_MESSAGE);
         }
